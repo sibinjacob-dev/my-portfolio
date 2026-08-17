@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#0c1719"/><stop offset="1" stop-color="#174745"/></linearGradient><pattern id="p" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0v48" fill="none" stroke="#fff" stroke-opacity=".05"/></pattern></defs>
+  <rect width="1200" height="630" rx="30" fill="url(#g)"/><rect width="1200" height="630" fill="url(#p)"/>
+  <circle cx="1000" cy="100" r="280" fill="#4ec7bb" opacity=".13"/><circle cx="1060" cy="540" r="190" fill="#ee7b52" opacity=".12"/>
+  <text x="85" y="115" fill="#4ec7bb" font-family="Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="5">RELIABILITY × CREATIVITY</text>
+  <text x="80" y="315" fill="#f0f6f4" font-family="Georgia, serif" font-size="104">Sibin Jacob</text>
+  <text x="87" y="385" fill="#a9bab7" font-family="Arial, sans-serif" font-size="31">Site Reliability Engineer &amp; Creative Freelancer</text>
+  <text x="88" y="545" fill="#70837f" font-family="Arial, sans-serif" font-size="18">Open Graph placeholder — replace before launch</text>
+</svg>

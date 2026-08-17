@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101c1f" />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem('sibin-portfolio-theme');
+        if (savedTheme === 'dark' || (!savedTheme && matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (_) {}
+    </script>
+    <meta name="description" content="Choose between Sibin Jacob’s professional Site Reliability Engineering portfolio and his separate independent creative-services portfolio." />
+    <meta name="keywords" content="Sibin Jacob, Site Reliability Engineer, SRE, cloud, DevOps, website designer, graphic designer, Kerala" />
+    <meta name="author" content="Sibin Jacob" />
+    <meta name="robots" content="index, follow" />
+    <!-- Replace the placeholder domain before deployment. -->
+    <link rel="canonical" href="https://www.yourdomain.com/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sibin Jacob — Choose a Portfolio" />
+    <meta property="og:description" content="Two distinct portfolios for professional engineering and independent creative services." />
+    <meta property="og:url" content="https://www.yourdomain.com/" />
+    <meta property="og:image" content="https://www.yourdomain.com/og-placeholder.svg" />
+    <meta property="og:image:alt" content="Sibin Jacob portfolio preview placeholder" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sibin Jacob — Choose a Portfolio" />
+    <meta name="twitter:description" content="Professional engineering and independent creative work, clearly separated." />
+    <meta name="twitter:image" content="https://www.yourdomain.com/og-placeholder.svg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "name": "Sibin Jacob",
+            "url": "https://www.yourdomain.com/",
+            "jobTitle": "Site Reliability Engineer",
+            "email": "mailto:sibinjacob169@gmail.com",
+            "address": { "@type": "PostalAddress", "addressRegion": "Kerala", "addressCountry": "IN" },
+            "sameAs": ["https://www.linkedin.com/in/sibinjacob"]
+          },
+          {
+            "@type": "ProfessionalService",
+            "name": "Sibin Jacob — Web & Creative Services",
+            "url": "https://www.yourdomain.com/",
+            "areaServed": "India",
+            "description": "Website design and development, graphic design, hosting setup, SEO, and website maintenance."
+          }
+        ]
+      }
+    </script>
+    <title>Sibin Jacob — Choose a Portfolio</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
