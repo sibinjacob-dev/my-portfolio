@@ -11,13 +11,10 @@ import {
   Headphones,
   Layers3,
   Lightbulb,
-  Mail,
   MapPin,
   MessageCircle,
   Palette,
-  Phone,
   Rocket,
-  Send,
   ShieldCheck,
   Sparkles,
   Star,
@@ -25,7 +22,7 @@ import {
   Wrench,
   Zap,
 } from 'lucide-react'
-import { useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { ProjectCard } from '../components/ProjectCard'
 import { ProjectModal } from '../components/ProjectModal'
 import { ProjectVisual } from '../components/ProjectVisual'
@@ -70,7 +67,6 @@ interface HomePageProps {
 export function HomePage({ view, onNavigate }: HomePageProps) {
   const isProfessional = view === 'professional'
   const [activeCategory, setActiveCategory] = useState<'All' | ProjectCategory>('All')
-  const [contactService, setContactService] = useState('Website Design & Development')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   useEffect(() => {
@@ -93,27 +89,9 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
     [activeCategory],
   )
   const heroSocialLinks = socialLinks.filter(({ label }) =>
-    isProfessional ? ['LinkedIn', 'Email'].includes(label) : ['Email', 'WhatsApp', 'Instagram'].includes(label),
+    isProfessional ? ['LinkedIn', 'GitHub'].includes(label) : ['LinkedIn', 'Instagram'].includes(label),
   )
   const linkedInUrl = socialLinks.find(({ label }) => label === 'LinkedIn')?.href ?? '#'
-
-  function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    const form = new FormData(event.currentTarget)
-    const subject = `Portfolio enquiry — ${form.get('service')}`
-    const body = [
-      `Name: ${form.get('name')}`,
-      `Email: ${form.get('email')}`,
-      `Phone: ${form.get('phone') || 'Not provided'}`,
-      `Service: ${form.get('service')}`,
-      `Budget: ${form.get('budget')}`,
-      `Preferred contact: ${form.get('contactMethod')}`,
-      '',
-      'Project details:',
-      form.get('description'),
-    ].join('\n')
-    window.location.href = `mailto:${personalInformation.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-  }
 
   return (
     <>
@@ -244,7 +222,7 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
                     <h3>{service.title}</h3>
                     <p>{service.description}</p>
                     <ul>{service.deliverables.map((item) => <li key={item}><Check size={14} />{item}</li>)}</ul>
-                    <a href="#contact" className="text-link" onClick={() => setContactService(service.title)}>Request a quote <ArrowRight size={16} /></a>
+                    <a href="#contact" className="text-link">Request a quote <ArrowRight size={16} /></a>
                   </article>
                 </Reveal>
               )
@@ -359,13 +337,12 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
           <Reveal>
             <div>
               <SectionHeading eyebrow="Let's connect" title="Talk technology, reliability, and better systems." />
-              <p>Reach out through email or LinkedIn for conversations about site reliability, cloud infrastructure, automation, observability, or web technology.</p>
+              <p>Connect through LinkedIn for conversations about site reliability, cloud infrastructure, automation, observability, or web technology.</p>
             </div>
           </Reveal>
           <Reveal delay={70}>
             <div className="professional-contact-card">
               <p>Connect with me</p>
-              <a href={`mailto:${personalInformation.email}`}><span><Mail size={20} /></span><div><small>Email</small><strong>{personalInformation.email}</strong></div><ArrowUpRight size={17} /></a>
               <a href={linkedInUrl} target="_blank" rel="noreferrer"><span><ExternalLink size={20} /></span><div><small>LinkedIn</small><strong>/in/sibinjacob</strong></div><ArrowUpRight size={17} /></a>
               <button type="button" onClick={() => onNavigate('freelance')}>Looking for independent creative services? <ArrowRight size={16} /></button>
             </div>
@@ -376,32 +353,19 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
           <Reveal>
             <div className="contact-copy">
               <SectionHeading eyebrow="Start a conversation" title="Have something useful to build?" />
-              <p>Share the essentials below. Submitting opens your email app with the project details pre-filled—no data is stored by this website.</p>
+              <p>To reduce spam, direct email and phone details are not published here. Send a message through LinkedIn to discuss a project.</p>
               <div className="contact-details">
-                <a href={`mailto:${personalInformation.email}`}><span><Mail size={19} /></span><div><small>Email</small><strong>{personalInformation.email}</strong></div></a>
-                <a href={`tel:${personalInformation.phone.replace(/\s/g, '')}`}><span><Phone size={19} /></span><div><small>Phone</small><strong>{personalInformation.phone}</strong></div></a>
                 <div><span><MapPin size={19} /></span><div><small>Location</small><strong>{personalInformation.location}</strong></div></div>
               </div>
-              <a href={`https://wa.me/${personalInformation.whatsappNumber}?text=${encodeURIComponent('Hi Sibin, I would like to discuss a project.')}`} target="_blank" rel="noreferrer" className="button button--whatsapp"><MessageCircle size={18} />Start on WhatsApp <ExternalLink size={14} /></a>
+              <a href={linkedInUrl} target="_blank" rel="noreferrer" className="button button--primary">Message on LinkedIn <ExternalLink size={14} /></a>
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <form className="contact-form" onSubmit={handleContactSubmit}>
-              <div className="form-row">
-                <label>Name<input name="name" type="text" autoComplete="name" placeholder="Your name" required /></label>
-                <label>Email<input name="email" type="email" autoComplete="email" placeholder="you@example.com" required /></label>
-              </div>
-              <div className="form-row">
-                <label>Phone <small>(optional)</small><input name="phone" type="tel" autoComplete="tel" placeholder="Your phone number" /></label>
-                <label>Service required<select name="service" value={contactService} onChange={(event) => setContactService(event.target.value)}>{freelanceServices.map((service) => <option key={service.id}>{service.title}</option>)}</select></label>
-              </div>
-              <div className="form-row">
-                <label>Budget range<select name="budget" defaultValue="To be discussed"><option>To be discussed</option><option>Under ₹15,000</option><option>₹15,000 – ₹40,000</option><option>₹40,000 – ₹80,000</option><option>Above ₹80,000</option></select></label>
-                <label>Preferred contact<select name="contactMethod" defaultValue="Email"><option>Email</option><option>Phone</option><option>WhatsApp</option></select></label>
-              </div>
-              <label>Project description<textarea name="description" rows={5} placeholder="What are you looking to create, and when do you need it?" required /></label>
-              <div className="form-footer"><p><ShieldCheck size={15} />Your details stay in your email app.</p><button className="button button--primary" type="submit">Prepare email <Send size={17} /></button></div>
-            </form>
+            <div className="professional-contact-card">
+              <p>Private contact</p>
+              <a href={linkedInUrl} target="_blank" rel="noreferrer"><span><ExternalLink size={20} /></span><div><small>LinkedIn</small><strong>Send a direct message</strong></div><ArrowUpRight size={17} /></a>
+              <p>Your contact details can be exchanged privately after connecting.</p>
+            </div>
           </Reveal>
         </div>
       </section>}

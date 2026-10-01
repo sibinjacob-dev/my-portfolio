@@ -1,4 +1,4 @@
-import { ArrowUp, ArrowUpRight, Mail, MapPin } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, MapPin } from 'lucide-react'
 import { personalInformation } from '../data/personalInformation'
 import { freelanceServices } from '../data/freelanceServices'
 import { socialLinks } from '../data/socialLinks'
@@ -16,10 +16,10 @@ export function Footer({ view, onNavigate }: FooterProps) {
     ? ['Profile', 'Skills', 'Contact']
     : ['Services', 'Portfolio', 'Process', 'Why-me', 'Contact']
   const visibleSocialLinks = socialLinks.filter(({ label }) => {
-    if (isGateway) return label === 'Email'
+    if (isGateway) return label === 'LinkedIn'
     return isProfessional
-      ? ['LinkedIn', 'Email', 'GitHub'].includes(label)
-      : ['Email', 'WhatsApp', 'Instagram'].includes(label)
+      ? ['LinkedIn', 'GitHub'].includes(label)
+      : ['LinkedIn', 'Instagram'].includes(label)
   })
 
   return (
@@ -28,7 +28,6 @@ export function Footer({ view, onNavigate }: FooterProps) {
         <div className="footer-intro">
           <button type="button" className="brand brand--footer" onClick={() => onNavigate('gateway')}><span className="brand-mark">SJ</span><span className="brand-name">Sibin Jacob</span></button>
           <p>{isProfessional ? 'Site Reliability Engineering, cloud operations, observability, and automation.' : isGateway ? 'Two distinct portfolios for two different audiences.' : 'Independent websites, design, hosting, SEO, and ongoing support.'}</p>
-          <a className="footer-contact" href={`mailto:${personalInformation.email}`}><Mail size={16} />{personalInformation.email}</a>
           <span className="footer-contact"><MapPin size={16} />{personalInformation.location}</span>
         </div>
         <div>

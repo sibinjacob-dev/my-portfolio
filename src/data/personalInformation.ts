@@ -6,9 +6,6 @@ export const personalInformation = {
   professionalTitle: 'Site Reliability Engineer',
   freelanceTitle: 'Independent Web & Visual Designer',
   location: 'Kerala, India',
-  email: 'sibinjacob169@gmail.com',
-  phone: '+91 94477 82170',
-  whatsappNumber: '919447782170',
   professionalIntro:
     'A technical profile focused on production reliability, cloud infrastructure, observability, automation, containers, and modern web technologies.',
   freelanceIntro:
