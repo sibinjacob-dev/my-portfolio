@@ -13,7 +13,7 @@ export function Footer({ view, onNavigate }: FooterProps) {
   const isProfessional = view === 'professional'
   const isGateway = view === 'gateway'
   const exploreLinks = isProfessional
-    ? ['Profile', 'Experience', 'Skills', 'Resume', 'Contact']
+    ? ['Profile', 'Skills', 'Contact']
     : ['Services', 'Portfolio', 'Process', 'Why-me', 'Contact']
   const visibleSocialLinks = socialLinks.filter(({ label }) => {
     if (isGateway) return label === 'Email'
@@ -35,7 +35,7 @@ export function Footer({ view, onNavigate }: FooterProps) {
           <h2 className="footer-heading">{isGateway ? 'Choose a path' : 'Explore'}</h2>
           <div className="footer-links">
             {isGateway ? (
-              <><button type="button" onClick={() => onNavigate('professional')}>Professional career <ArrowUpRight size={13} /></button><button type="button" onClick={() => onNavigate('freelance')}>Creative services <ArrowUpRight size={13} /></button></>
+              <><button type="button" onClick={() => onNavigate('professional')}>Technical profile <ArrowUpRight size={13} /></button><button type="button" onClick={() => onNavigate('freelance')}>Creative services <ArrowUpRight size={13} /></button></>
             ) : exploreLinks.map((item) => <a key={item} href={`#${item.toLowerCase()}`}>{item.replace('-', ' ')}<ArrowUpRight size={13} /></a>)}
           </div>
         </div>
@@ -43,7 +43,7 @@ export function Footer({ view, onNavigate }: FooterProps) {
           <h2 className="footer-heading">{isGateway ? 'Portfolio boundaries' : isProfessional ? 'Professional focus' : 'Services'}</h2>
           <div className="footer-links">
             {isGateway
-              ? <><span>Career: employment and engineering</span><span>Creative: independent client services</span></>
+              ? <><span>Technical: skills and engineering focus</span><span>Creative: independent client services</span></>
               : isProfessional
               ? ['Site Reliability Engineering', 'Cloud operations', 'Observability', 'Automation', 'Incident response'].map((item) => <span key={item}>{item}</span>)
               : freelanceServices.slice(0, 5).map((service) => <a key={service.id} href="#services">{service.title}</a>)}

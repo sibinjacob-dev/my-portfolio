@@ -1,6 +1,6 @@
 import type { SkillGroup } from '../types/portfolio'
 
-// Resume-sourced tools grouped for presentation. Adjust experience labels as your proficiency evolves.
+// Technical capabilities grouped for presentation. Adjust proficiency labels as your skills evolve.
 export const technicalSkills: SkillGroup[] = [
   {
     category: 'Site Reliability Engineering',

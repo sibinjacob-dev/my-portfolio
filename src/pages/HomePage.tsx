@@ -2,16 +2,11 @@ import {
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
-  Award,
   Check,
   CheckCircle2,
-  ChevronRight,
   ClipboardCheck,
   Code2,
-  Download,
   ExternalLink,
-  FileText,
-  GraduationCap,
   Handshake,
   Headphones,
   Layers3,
@@ -37,13 +32,9 @@ import { ProjectVisual } from '../components/ProjectVisual'
 import { Reveal } from '../components/Reveal'
 import { RotatingText } from '../components/RotatingText'
 import { SectionHeading } from '../components/SectionHeading'
-import { achievements } from '../data/achievements'
-import { certifications } from '../data/certifications'
-import { education } from '../data/education'
 import { freelanceServices } from '../data/freelanceServices'
 import { personalInformation } from '../data/personalInformation'
 import { portfolioProjects, projectCategories } from '../data/portfolioProjects'
-import { professionalExperience } from '../data/professionalExperience'
 import { socialLinks } from '../data/socialLinks'
 import { technicalSkills } from '../data/technicalSkills'
 import { testimonials } from '../data/testimonials'
@@ -61,7 +52,7 @@ const processSteps = [
 ]
 
 const reasons = [
-  { title: 'Technical foundation', text: 'Production experience shapes practical, resilient solutions.', icon: ShieldCheck },
+  { title: 'Technical foundation', text: 'Systems thinking shapes practical, resilient solutions.', icon: ShieldCheck },
   { title: 'Clear communication', text: 'Scope, progress, feedback, and decisions stay visible.', icon: MessageCircle },
   { title: 'Creative + practical', text: 'Visual decisions support the message and the user journey.', icon: Lightbulb },
   { title: 'Responsive by default', text: 'Every interface is considered across mobile, tablet, and desktop.', icon: Layers3 },
@@ -87,7 +78,7 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
       ? 'Sibin Jacob — Site Reliability Engineer'
       : 'Sibin Jacob — Independent Web & Creative Services'
     const description = view === 'professional'
-      ? 'Professional portfolio of Sibin Jacob, a Site Reliability Engineer experienced in cloud operations, observability, automation, and incident response.'
+      ? 'Technical profile of Sibin Jacob, highlighting site reliability, cloud operations, observability, automation, and incident response skills.'
       : 'Independent creative services by Sibin Jacob, including website design, development, visual design, hosting, SEO, and maintenance.'
     document.title = title
     document.querySelector('meta[name="description"]')?.setAttribute('content', description)
@@ -130,8 +121,8 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
         <div className="hero-noise" aria-hidden="true" />
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="availability"><span />{isProfessional ? 'Professional career portfolio' : 'Independent creative services'}</p>
-            <h1>{isProfessional ? <>Engineering reliable<br /><em>production systems.</em></> : <>Creative work,<br /><em>independently built.</em></>}</h1>
+            <p className="availability"><span />{isProfessional ? 'Technical skills profile' : 'Independent creative services'}</p>
+            <h1>{isProfessional ? <>Skills for reliable<br /><em>modern systems.</em></> : <>Creative work,<br /><em>independently built.</em></>}</h1>
             <div className="role-line">
               <span>{isProfessional ? `${personalInformation.firstName} Jacob —` : 'Focused freelance practice —'}</span>
               <RotatingText items={isProfessional ? personalInformation.roles.professional : personalInformation.roles.freelance} />
@@ -139,9 +130,9 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
             <p className="hero-intro">{isProfessional ? personalInformation.professionalIntro : personalInformation.freelanceIntro}</p>
             <div className="hero-actions">
               {isProfessional ? <>
-                <a href="#career" className="button button--primary">View experience <ArrowDownRight size={18} /></a>
-                <a href={personalInformation.resumePath} download className="button button--secondary"><Download size={18} />Download resume</a>
-                <a href="#contact" className="button button--ghost">Professional contact <ArrowRight size={18} /></a>
+                <a href="#skills" className="button button--primary">Explore my skills <ArrowDownRight size={18} /></a>
+                <a href="#about" className="button button--secondary">View profile <ArrowRight size={18} /></a>
+                <a href="#contact" className="button button--ghost">Get in touch <ArrowRight size={18} /></a>
               </> : <>
                 <a href="#services" className="button button--primary">Explore services <ArrowDownRight size={18} /></a>
                 <a href="#portfolio" className="button button--secondary">View sample work <ArrowRight size={18} /></a>
@@ -149,7 +140,7 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
               </>}
             </div>
             <div className="hero-socials" aria-label="Social links">
-              <span>{isProfessional ? 'Professional links' : 'Creative enquiries'}</span><i aria-hidden="true" />
+              <span>{isProfessional ? 'Connect with me' : 'Creative enquiries'}</span><i aria-hidden="true" />
               {heroSocialLinks.map(({ label, href, icon: Icon }) => (
                 <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" aria-label={label}><Icon size={18} /></a>
               ))}
@@ -174,7 +165,7 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
         </div>
         <div className="container hero-footnote"><span>01</span><p>Scroll to explore</p><i /></div>
         <button type="button" className="path-corner-switch" onClick={() => onNavigate(isProfessional ? 'freelance' : 'professional')}>
-          Looking for {isProfessional ? 'creative services' : 'my professional career'}? <ArrowRight size={15} />
+          Looking for {isProfessional ? 'creative services' : 'my technical profile'}? <ArrowRight size={15} />
         </button>
       </section>
 
@@ -183,10 +174,10 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
         <div className="container">
           <Reveal>
             <div className="about-grid">
-              <SectionHeading eyebrow="Professional profile" title="Reliability work grounded in ownership." />
+              <SectionHeading eyebrow="Technical profile" title="A practical skill set for dependable systems." />
               <div className="about-copy">
-                <p className="lead-copy">My professional career centres on site reliability, cloud operations, observability, automation, and incident response across enterprise environments.</p>
-                <p>I approach operational problems by understanding the failure mode, reducing ambiguity, improving visibility, and building repeatable solutions that are easier for teams to operate.</p>
+                <p className="lead-copy">My strengths span site reliability, cloud infrastructure, observability, automation, containers, scripting, and web technologies.</p>
+                <p>I enjoy understanding complex systems, improving visibility, removing repetitive work, and creating solutions that are clear, resilient, and easier to operate.</p>
                 <div className="about-principles">
                   <span><ShieldCheck size={18} /> Dependable by design</span>
                   <span><Sparkles size={18} /> Clear over complicated</span>
@@ -205,52 +196,11 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      <section id="career" className="section section--tinted section-anchor">
-        <div className="container">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Professional career"
-              title="A career built around dependable operations."
-              description="Resume-sourced experience across enterprise reliability, cloud infrastructure, monitoring, automation, and incident response."
-            />
-          </Reveal>
-          <div className="career-timeline">
-            {professionalExperience.map((experience, index) => (
-              <Reveal key={experience.id} delay={index * 60}>
-                <article className="career-card">
-                  <div className="career-marker"><span>{experience.logoText}</span></div>
-                  <div className="career-card__main">
-                    <div className="career-card__header">
-                      <div>
-                        <p className="career-date">{experience.dates}</p>
-                        <h3>{experience.role}</h3>
-                        <p className="career-company">{experience.company}</p>
-                      </div>
-                      <span className="location-pill"><MapPin size={14} />{experience.location}</span>
-                    </div>
-                    {experience.product && <p className="product-line"><span>Product / account</span>{experience.product}</p>}
-                    <p>{experience.description}</p>
-                    <details className="career-details">
-                      <summary>Responsibilities & highlights <ChevronRight size={17} /></summary>
-                      <ul>
-                        {experience.responsibilities.map((item) => <li key={item}><Check size={15} />{item}</li>)}
-                        {experience.achievements.map((item) => <li key={item}><Award size={15} />{item}</li>)}
-                      </ul>
-                    </details>
-                    <div className="tag-list">{experience.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" className="section section-anchor">
+      <section id="skills" className="section section--tinted section-anchor">
         <div className="container">
           <Reveal>
             <div className="section-heading-row">
-              <SectionHeading eyebrow="Technical skills" title="Tools for reliable, scalable work." description="Experience labels replace arbitrary percentage scores and can be updated in one data file." />
+              <SectionHeading eyebrow="Technical skills" title="Tools for reliable, scalable work." description="A focused view of the platforms, practices, and technologies I use to solve technical problems." />
               <p className="skill-legend"><span /> Advanced / Experienced <i /> Working knowledge</p>
             </div>
           </Reveal>
@@ -368,7 +318,7 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
           <Reveal>
             <div className="why-intro">
               <SectionHeading eyebrow="Why work with me" title="One perspective across technology and design." />
-              <p>Professional operations experience brings structure and ownership. Creative practice keeps the work human, useful, and visually clear.</p>
+              <p>A strong operations mindset brings structure and ownership. Creative practice keeps the work human, useful, and visually clear.</p>
               <a href="#contact" className="button button--secondary">Talk about your project <ArrowRight size={17} /></a>
             </div>
           </Reveal>
@@ -404,59 +354,19 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
 
       </>}
 
-      {isProfessional && <section id="resume" className="section resume-section section-anchor">
-        <div className="container">
-          <Reveal>
-            <div className="resume-header">
-              <div><p className="eyebrow"><span />Resume</p><h2>Professional snapshot.</h2><p>Site Reliability Engineer with experience across enterprise cloud operations, production monitoring, automation, incident response, infrastructure management, and operational support.</p></div>
-              <a href={personalInformation.resumePath} download className="button button--light"><Download size={18} />Download PDF</a>
-            </div>
-          </Reveal>
-          <div className="resume-grid">
-            <Reveal>
-              <article className="resume-column">
-                <div className="resume-column__title"><FileText size={20} /><h3>Experience</h3></div>
-                {professionalExperience.map((item) => (
-                  <div className="resume-item" key={item.id}><span>{item.dates}</span><strong>{item.role}</strong><small>{item.company}</small></div>
-                ))}
-              </article>
-            </Reveal>
-            <Reveal delay={70}>
-              <article className="resume-column">
-                <div className="resume-column__title"><GraduationCap size={21} /><h3>Education & training</h3></div>
-                {education.map((item) => (
-                  <div className="resume-item" key={item.qualification}><span>{item.dates}</span><strong>{item.qualification}</strong><small>{item.institution}<br />{item.university}</small></div>
-                ))}
-                {certifications.map((item) => (
-                  <div className="resume-item" key={item.name}><span>{item.date} · {item.type}</span><strong>{item.name}</strong><small>{item.issuer}</small></div>
-                ))}
-              </article>
-            </Reveal>
-            <Reveal delay={140}>
-              <article className="resume-column">
-                <div className="resume-column__title"><Award size={20} /><h3>Skills & achievements</h3></div>
-                <div className="resume-skill-cloud">{technicalSkills.flatMap((group) => group.skills).slice(0, 18).map((skill) => <span key={skill.name}>{skill.name}</span>)}</div>
-                {achievements.map((item) => <div className="achievement" key={item.title}><Award size={17} /><div><strong>{item.title}</strong><p>{item.description}</p></div></div>)}
-              </article>
-            </Reveal>
-          </div>
-        </div>
-      </section>}
-
       {isProfessional ? <section id="contact" className="section professional-contact-section section-anchor">
         <div className="container professional-contact">
           <Reveal>
             <div>
-              <SectionHeading eyebrow="Professional contact" title="Connect about reliability engineering." />
-              <p>For employment opportunities, professional networking, or conversations about site reliability and cloud operations, contact me through email or LinkedIn.</p>
+              <SectionHeading eyebrow="Let's connect" title="Talk technology, reliability, and better systems." />
+              <p>Reach out through email or LinkedIn for conversations about site reliability, cloud infrastructure, automation, observability, or web technology.</p>
             </div>
           </Reveal>
           <Reveal delay={70}>
             <div className="professional-contact-card">
-              <p>Professional enquiries</p>
+              <p>Connect with me</p>
               <a href={`mailto:${personalInformation.email}`}><span><Mail size={20} /></span><div><small>Email</small><strong>{personalInformation.email}</strong></div><ArrowUpRight size={17} /></a>
               <a href={linkedInUrl} target="_blank" rel="noreferrer"><span><ExternalLink size={20} /></span><div><small>LinkedIn</small><strong>/in/sibinjacob</strong></div><ArrowUpRight size={17} /></a>
-              <a href={personalInformation.resumePath} download><span><FileText size={20} /></span><div><small>Resume</small><strong>Download professional resume</strong></div><Download size={17} /></a>
               <button type="button" onClick={() => onNavigate('freelance')}>Looking for independent creative services? <ArrowRight size={16} /></button>
             </div>
           </Reveal>

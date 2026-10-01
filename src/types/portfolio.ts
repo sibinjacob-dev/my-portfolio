@@ -2,20 +2,6 @@ import type { LucideIcon } from 'lucide-react'
 
 export type SkillLevel = 'Advanced' | 'Experienced' | 'Working Knowledge' | 'Currently Learning'
 
-export interface Experience {
-  id: string
-  company: string
-  role: string
-  dates: string
-  location: string
-  product?: string
-  description: string
-  responsibilities: string[]
-  achievements: string[]
-  technologies: string[]
-  logoText: string
-}
-
 export interface SkillGroup {
   category: string
   description: string

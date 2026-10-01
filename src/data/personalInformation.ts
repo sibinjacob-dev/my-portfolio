@@ -1,5 +1,5 @@
 // Update this file first when personal details, availability, or contact information changes.
-// Professional and independent-work content is intentionally kept in separate fields.
+// Technical-profile and independent-work content is intentionally kept in separate fields.
 export const personalInformation = {
   name: 'Sibin Jacob',
   firstName: 'Sibin',
@@ -10,13 +10,13 @@ export const personalInformation = {
   phone: '+91 94477 82170',
   whatsappNumber: '919447782170',
   professionalIntro:
-    'Site Reliability Engineer focused on production reliability, cloud operations, observability, automation, and incident response.',
+    'A technical profile focused on production reliability, cloud infrastructure, observability, automation, containers, and modern web technologies.',
   freelanceIntro:
     'Independent website and visual design services for organisations that need clear communication, practical delivery, and dependable launch support.',
   professionalSummary:
-    'My professional career centres on site reliability, cloud operations, observability, automation, and incident response across enterprise environments.',
+    'My technical focus centres on site reliability, cloud operations, observability, automation, and incident response.',
   freelanceSummary:
-    'My independent work helps organisations create clear websites and visual communication and is presented separately from my employment career.',
+    'My independent work helps organisations create clear websites and visual communication and is presented separately from my technical profile.',
   professionalApproach:
     'I start by understanding the operational problem, reduce ambiguity, improve visibility, and build repeatable solutions that are easier for teams to operate.',
   roles: {
@@ -24,16 +24,15 @@ export const personalInformation = {
     freelance: ['Website Designer', 'Graphic Designer', 'SEO & Hosting Consultant'],
   },
   availability: {
-    professional: 'Professional career portfolio',
+    professional: 'Technical skills profile',
     freelance: 'Open to select independent projects',
   },
-  resumePath: '/sibin-jacob-resume.pdf',
   profileImage: '/profile-placeholder.svg',
   professionalStats: [
-    { value: '7+', label: 'Years in technology', note: 'Professional experience since 2018' },
-    { value: '4', label: 'Career stages', note: 'From the supplied resume' },
+    { value: '6', label: 'Skill areas', note: 'Reliability, cloud, observability, automation, containers, and web' },
     { value: '3', label: 'Cloud platforms', note: 'AWS, GCP, and IBM Cloud' },
-    { value: '30+', label: 'Tools & technologies', note: 'Across operations and engineering' },
+    { value: '30+', label: 'Tools & technologies', note: 'Across infrastructure and engineering' },
+    { value: '1', label: 'Core mindset', note: 'Build dependable, clear, repeatable systems' },
   ],
   freelanceStats: [
     { value: '—', label: 'Independent projects', note: 'Add verified count' },

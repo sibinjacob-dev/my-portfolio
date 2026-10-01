@@ -1,6 +1,6 @@
 import { BriefcaseBusiness, Camera, CodeXml, Mail, MessageCircle } from 'lucide-react'
 
-// Replace placeholder social URLs before launch. LinkedIn, email, and WhatsApp come from the supplied resume.
+// Replace placeholder social URLs before launch.
 export const socialLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sibinjacob', icon: BriefcaseBusiness, placeholder: false },
   { label: 'Email', href: 'mailto:sibinjacob169@gmail.com', icon: Mail, placeholder: false },

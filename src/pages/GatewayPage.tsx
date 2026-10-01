@@ -4,8 +4,8 @@ import type { PortfolioView } from '../types/navigation'
 
 export function GatewayPage({ onNavigate }: { onNavigate: (view: PortfolioView) => void }) {
   useEffect(() => {
-    const title = 'Sibin Jacob — Choose a Portfolio'
-    const description = 'Choose between Sibin Jacob’s professional Site Reliability Engineering portfolio and his separate independent creative-services portfolio.'
+    const title = 'Sibin Jacob — Skills & Creative Portfolio'
+    const description = 'Explore Sibin Jacob’s technical skills profile or independent web and creative services portfolio.'
     document.title = title
     document.querySelector('meta[name="description"]')?.setAttribute('content', description)
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', title)
@@ -21,19 +21,19 @@ export function GatewayPage({ onNavigate }: { onNavigate: (view: PortfolioView) 
       <div className="container gateway-content">
         <div className="gateway-intro">
           <p className="eyebrow"><span />Sibin Jacob</p>
-          <h1>Two distinct paths.<br /><em>Choose yours.</em></h1>
-          <p>My professional engineering career and independent creative work serve different audiences. Select the portfolio that is relevant to you.</p>
+          <h1>One profile.<br /><em>Two areas of focus.</em></h1>
+          <p>Explore my technical capabilities or view my independent creative work and services.</p>
         </div>
 
         <div className="gateway-cards">
           <button type="button" className="gateway-card gateway-card--professional" onClick={() => onNavigate('professional')}>
-            <div className="gateway-card__top"><span className="gateway-card__icon"><BriefcaseBusiness size={24} /></span><span>For employers & professional connections</span></div>
+            <div className="gateway-card__top"><span className="gateway-card__icon"><BriefcaseBusiness size={24} /></span><span>Technical capabilities and strengths</span></div>
             <div>
-              <p>Professional career</p>
+              <p>Technical profile</p>
               <h2>Site Reliability<br />Engineering</h2>
               <div className="gateway-tags"><span><ShieldCheck size={14} />Reliability</span><span><ServerCog size={14} />Cloud operations</span></div>
             </div>
-            <span className="gateway-card__cta">Enter professional portfolio <ArrowRight size={18} /></span>
+            <span className="gateway-card__cta">Explore technical skills <ArrowRight size={18} /></span>
           </button>
 
           <button type="button" className="gateway-card gateway-card--freelance" onClick={() => onNavigate('freelance')}>
@@ -47,7 +47,7 @@ export function GatewayPage({ onNavigate }: { onNavigate: (view: PortfolioView) 
           </button>
         </div>
 
-        <p className="gateway-note"><span aria-hidden="true" />These portfolios are intentionally separate. You can switch paths at any time.</p>
+        <p className="gateway-note"><span aria-hidden="true" />Choose the area most relevant to you. You can switch paths at any time.</p>
       </div>
     </section>
   )
