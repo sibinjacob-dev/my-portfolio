@@ -1,6 +1,6 @@
 import type { LucideIcon } from 'lucide-react'
 
-export type SkillLevel = 'Advanced' | 'Experienced' | 'Working Knowledge' | 'Currently Learning'
+export type SkillLevel = 'Advanced' | 'Experienced' | 'Currently Learning'
 
 export interface SkillGroup {
   category: string

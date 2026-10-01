@@ -18,7 +18,7 @@ export const technicalSkills: SkillGroup[] = [
     skills: [
       { name: 'AWS', level: 'Experienced' },
       { name: 'GCP', level: 'Experienced' },
-      { name: 'IBM Cloud', level: 'Working Knowledge' },
+      { name: 'IBM Cloud', level: 'Experienced' },
       { name: 'Terraform', level: 'Experienced' },
     ],
   },
@@ -29,7 +29,7 @@ export const technicalSkills: SkillGroup[] = [
       { name: 'Datadog', level: 'Experienced' },
       { name: 'Kibana', level: 'Experienced' },
       { name: 'AppDynamics', level: 'Experienced' },
-      { name: 'Instana', level: 'Working Knowledge' },
+      { name: 'Instana', level: 'Experienced' },
       { name: 'PagerDuty', level: 'Experienced' },
     ],
   },
@@ -41,8 +41,8 @@ export const technicalSkills: SkillGroup[] = [
       { name: 'Ansible', level: 'Experienced' },
       { name: 'Rundeck', level: 'Experienced' },
       { name: 'Bash', level: 'Advanced' },
-      { name: 'Groovy', level: 'Working Knowledge' },
-      { name: 'Python', level: 'Working Knowledge' },
+      { name: 'Groovy', level: 'Experienced' },
+      { name: 'Python', level: 'Experienced' },
     ],
   },
   {
@@ -51,8 +51,8 @@ export const technicalSkills: SkillGroup[] = [
     skills: [
       { name: 'Docker', level: 'Experienced' },
       { name: 'Kubernetes', level: 'Experienced' },
-      { name: 'MySQL', level: 'Working Knowledge' },
-      { name: 'PostgreSQL', level: 'Working Knowledge' },
+      { name: 'MySQL', level: 'Experienced' },
+      { name: 'PostgreSQL', level: 'Experienced' },
     ],
   },
   {
@@ -61,7 +61,7 @@ export const technicalSkills: SkillGroup[] = [
     skills: [
       { name: 'HTML & CSS', level: 'Experienced' },
       { name: 'JavaScript', level: 'Experienced' },
-      { name: 'PHP', level: 'Working Knowledge' },
+      { name: 'PHP', level: 'Experienced' },
       { name: 'Git', level: 'Experienced' },
       { name: 'Jira & ServiceNow', level: 'Experienced' },
     ],

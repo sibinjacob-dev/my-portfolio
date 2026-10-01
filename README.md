@@ -1,14 +1,8 @@
 # Sibin Jacob — Portfolio
 
-A responsive portfolio with separate visitor journeys for Sibin Jacob’s technical skills profile and independent web and creative services. Built with React, Vite, TypeScript, Tailwind CSS, and Lucide icons.
+A responsive single-page profile for Sibin Jacob, combining reliability engineering, cloud, automation, web technology, and visual design capabilities. Built with React, Vite, TypeScript, Tailwind CSS, and Lucide icons.
 
-## Portfolio paths
-
-- `/` — neutral gateway that asks visitors which portfolio they need
-- `/professional` — SRE profile, technical skills, and LinkedIn contact
-- `/freelance` — independent services, process, approach, and LinkedIn contact
-
-Each path has its own hero, navigation, metadata, contact intent, and footer content. The small switch control allows intentional movement between paths without blending their content.
+The site is presented as one coherent public profile at `/`.
 
 ## Run locally
 
@@ -56,9 +50,6 @@ All regular content lives in `src/data/`. Each file begins with a short update n
 - `personalInformation.ts` — profile titles, summaries, roles, location, and technical statistics
 - `technicalSkills.ts` — skill categories and experience labels
 - `freelanceServices.ts` — service copy and deliverables
-- `education.ts` — degrees and institutions
-- `certifications.ts` — certifications and training
-- `achievements.ts` — verified achievements only
 - `socialLinks.ts` — published social profiles
 
 ## SEO checklist

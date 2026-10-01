@@ -339,6 +339,40 @@ img {
   background: #168c59;
 }
 
+.coffee-button {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 80;
+  min-height: 46px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: #fff;
+  background: #167d78;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(10, 28, 30, .28);
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: .01em;
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.coffee-button:hover {
+  color: #fff;
+  background: #106d68;
+  box-shadow: 0 16px 36px rgba(10, 28, 30, .34);
+  transform: translateY(-2px);
+}
+
+.coffee-button:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 3px;
+}
+
 .nav-resume {
   min-height: 39px;
   padding-inline: 15px;
@@ -1457,7 +1491,6 @@ img {
   white-space: nowrap;
 }
 
-.skill-list small[data-level="Working Knowledge"],
 .skill-list small[data-level="Currently Learning"] {
   color: var(--warm);
   background: var(--warm-soft);
@@ -3188,6 +3221,21 @@ img {
 }
 
 @media (max-width: 680px) {
+  .coffee-button {
+    right: 14px;
+    bottom: 14px;
+    width: 46px;
+    padding: 0;
+  }
+
+  .coffee-button span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
   .container {
     width: min(calc(100% - 32px), var(--container));
   }
