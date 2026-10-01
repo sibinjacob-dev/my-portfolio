@@ -14,7 +14,7 @@ export function Footer({ view, onNavigate }: FooterProps) {
   const isGateway = view === 'gateway'
   const exploreLinks = isProfessional
     ? ['Profile', 'Skills', 'Contact']
-    : ['Services', 'Portfolio', 'Process', 'Why-me', 'Contact']
+    : ['Services', 'Process', 'Why-me', 'Contact']
   const visibleSocialLinks = socialLinks.filter(({ label }) => {
     if (isGateway) return label === 'LinkedIn'
     return isProfessional
@@ -51,9 +51,9 @@ export function Footer({ view, onNavigate }: FooterProps) {
         <div>
           <h2 className="footer-heading">Connect</h2>
           <div className="footer-socials">
-            {visibleSocialLinks.map(({ label, href, icon: Icon, placeholder }) => (
-              <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" aria-label={`${label}${placeholder ? ' — link placeholder' : ''}`} title={placeholder ? `${label} link to be added` : label}>
-                <Icon size={18} /><span>{label}{placeholder ? ' *' : ''}</span>
+            {visibleSocialLinks.map(({ label, href, icon: Icon }) => (
+              <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" aria-label={label} title={label}>
+                <Icon size={18} /><span>{label}</span>
               </a>
             ))}
           </div>
@@ -61,7 +61,6 @@ export function Footer({ view, onNavigate }: FooterProps) {
       </div>
       <div className="container footer-bottom">
         <p>© {new Date().getFullYear()} Sibin Jacob.</p>
-        <p className="placeholder-note">* Social link placeholder</p>
         {!isGateway && <a className="back-to-top" href="#home">Back to top <ArrowUp size={15} /></a>}
       </div>
     </footer>

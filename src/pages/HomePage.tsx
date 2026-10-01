@@ -17,25 +17,18 @@ import {
   Rocket,
   ShieldCheck,
   Sparkles,
-  Star,
   Target,
   Wrench,
   Zap,
 } from 'lucide-react'
-import { useEffect, useMemo, useState } from 'react'
-import { ProjectCard } from '../components/ProjectCard'
-import { ProjectModal } from '../components/ProjectModal'
-import { ProjectVisual } from '../components/ProjectVisual'
+import { useEffect } from 'react'
 import { Reveal } from '../components/Reveal'
 import { RotatingText } from '../components/RotatingText'
 import { SectionHeading } from '../components/SectionHeading'
 import { freelanceServices } from '../data/freelanceServices'
 import { personalInformation } from '../data/personalInformation'
-import { portfolioProjects, projectCategories } from '../data/portfolioProjects'
 import { socialLinks } from '../data/socialLinks'
 import { technicalSkills } from '../data/technicalSkills'
-import { testimonials } from '../data/testimonials'
-import type { Project, ProjectCategory } from '../types/portfolio'
 import type { PortfolioView } from '../types/navigation'
 
 const processSteps = [
@@ -66,8 +59,6 @@ interface HomePageProps {
 
 export function HomePage({ view, onNavigate }: HomePageProps) {
   const isProfessional = view === 'professional'
-  const [activeCategory, setActiveCategory] = useState<'All' | ProjectCategory>('All')
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   useEffect(() => {
     const title = view === 'professional'
@@ -84,10 +75,6 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${window.location.origin}/${view}`)
   }, [view])
 
-  const visibleProjects = useMemo(
-    () => activeCategory === 'All' ? portfolioProjects : portfolioProjects.filter((project) => project.category === activeCategory),
-    [activeCategory],
-  )
   const heroSocialLinks = socialLinks.filter(({ label }) =>
     isProfessional ? ['LinkedIn', 'GitHub'].includes(label) : ['LinkedIn', 'Instagram'].includes(label),
   )
@@ -113,7 +100,7 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
                 <a href="#contact" className="button button--ghost">Get in touch <ArrowRight size={18} /></a>
               </> : <>
                 <a href="#services" className="button button--primary">Explore services <ArrowDownRight size={18} /></a>
-                <a href="#portfolio" className="button button--secondary">View sample work <ArrowRight size={18} /></a>
+                <a href="#process" className="button button--secondary">How I work <ArrowRight size={18} /></a>
                 <a href="#contact" className="button button--ghost">Request a quote <ArrowRight size={18} /></a>
               </>}
             </div>
@@ -125,15 +112,11 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
             </div>
           </div>
 
-          {isProfessional ? <div className="hero-portrait-wrap" aria-label="Profile photograph placeholder">
-            <div className="hero-orbit hero-orbit--one" aria-hidden="true" />
-            <div className="hero-orbit hero-orbit--two" aria-hidden="true" />
-            <div className="hero-portrait">
-              <img src={personalInformation.profileImage} alt="Sibin Jacob profile photograph placeholder" width="620" height="760" />
-              <div className="portrait-label"><span>Based in</span><strong>Kerala, India</strong></div>
-            </div>
-            <div className="floating-note floating-note--top"><Zap size={17} /><span>Reliability first</span></div>
-            <div className="floating-note floating-note--bottom"><ShieldCheck size={17} /><span>Operations with ownership</span></div>
+          {isProfessional ? <div className="freelance-hero-art" aria-label="Technical skills overview">
+            <div className="freelance-art-card freelance-art-card--main"><span>Technical profile</span><strong>Reliable systems.<br />Clear operations.</strong><small>CLOUD / SRE / AUTOMATION</small></div>
+            <div className="freelance-art-card freelance-art-card--design"><Zap size={22} /><span>Observability</span></div>
+            <div className="freelance-art-card freelance-art-card--web"><ShieldCheck size={22} /><span>Cloud & DevOps</span></div>
+            <div className="freelance-art-grid" aria-hidden="true" />
           </div> : <div className="freelance-hero-art" aria-label="Creative services overview">
             <div className="freelance-art-card freelance-art-card--main"><span>Independent studio</span><strong>Websites that feel<br />clear & considered.</strong><small>DESIGN / BUILD / LAUNCH</small></div>
             <div className="freelance-art-card freelance-art-card--design"><Palette size={22} /><span>Visual design</span></div>
@@ -231,46 +214,6 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      <section id="portfolio" className="section section-anchor">
-        <div className="container">
-          <Reveal>
-            <SectionHeading eyebrow="Selected work" title="A place for work that speaks clearly." description="Sample entries below demonstrate the finished portfolio system. Every one is labelled until real work and approved case studies replace it." />
-          </Reveal>
-          <div className="project-filters" role="group" aria-label="Filter portfolio projects">
-            {projectCategories.map((category) => (
-              <button key={category} type="button" className={activeCategory === category ? 'active' : ''} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}</button>
-            ))}
-          </div>
-          <div className="projects-grid" aria-live="polite">
-            {visibleProjects.map((project) => <ProjectCard key={project.slug} project={project} onOpen={setSelectedProject} />)}
-          </div>
-        </div>
-      </section>
-
-      <section className="section featured-case-section">
-        <div className="container">
-          <Reveal>
-            <div className="featured-case">
-              <div className="featured-case__visual">
-                <ProjectVisual accent={portfolioProjects[1].accent} label="CASE / TEMPLATE" title="Featured case study template" />
-              </div>
-              <div className="featured-case__copy">
-                <p className="eyebrow"><span />Featured case-study layout</p>
-                <span className="placeholder-tag">Placeholder content</span>
-                <h2>Show the thinking behind the finished work.</h2>
-                <p>This reusable detail page is ready for the client problem, your role, process, challenges, solution, before-and-after assets, and verified results.</p>
-                <div className="featured-points">
-                  <span><strong>01</strong>Context & objective</span>
-                  <span><strong>02</strong>Process & decisions</span>
-                  <span><strong>03</strong>Solution & results</span>
-                </div>
-                <button type="button" className="button button--primary" onClick={() => setSelectedProject(portfolioProjects[1])}>Explore the template <ArrowUpRight size={17} /></button>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       <section id="process" className="section section--tinted process-section section-anchor">
         <div className="container">
           <Reveal><SectionHeading eyebrow="How I work" title="A clear path from brief to launch." align="center" /></Reveal>
@@ -309,23 +252,6 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
                 </Reveal>
               )
             })}
-          </div>
-        </div>
-      </section>
-
-      <section id="testimonials" className="section testimonials-section section-anchor">
-        <div className="container">
-          <Reveal><SectionHeading eyebrow="Client notes" title="Space reserved for honest feedback." description="These cards are structural examples only—not real endorsements." /></Reveal>
-          <div className="testimonial-grid">
-            {testimonials.map((testimonial, index) => (
-              <Reveal key={`${testimonial.name}-${index}`} delay={index * 70}>
-                <article className="testimonial-card">
-                  <div className="testimonial-top"><span className="placeholder-tag">Placeholder testimonial</span><div aria-label={`${testimonial.rating} out of 5 stars`}>{Array.from({ length: testimonial.rating }).map((_, star) => <Star key={star} size={14} fill="currentColor" />)}</div></div>
-                  <blockquote>“{testimonial.review}”</blockquote>
-                  <div className="testimonial-person"><span>{testimonial.name.slice(0, 2).toUpperCase()}</span><div><strong>{testimonial.name}</strong><small>{testimonial.company} · {testimonial.projectType}</small></div></div>
-                </article>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>
@@ -369,7 +295,6 @@ export function HomePage({ view, onNavigate }: HomePageProps) {
           </Reveal>
         </div>
       </section>}
-      {!isProfessional && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
     </>
   )
 }

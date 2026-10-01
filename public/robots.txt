@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Replace the placeholder domain before deployment.
-Sitemap: https://www.yourdomain.com/sitemap.xml
+Sitemap: https://sibinjacob-dev.github.io/my-portfolio/sitemap.xml

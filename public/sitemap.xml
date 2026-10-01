@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Replace the placeholder domain and add published project URLs before deployment. -->
-  <url><loc>https://www.yourdomain.com/</loc></url>
-  <url><loc>https://www.yourdomain.com/professional</loc></url>
-  <url><loc>https://www.yourdomain.com/freelance</loc></url>
+  <url><loc>https://sibinjacob-dev.github.io/my-portfolio/</loc></url>
+  <url><loc>https://sibinjacob-dev.github.io/my-portfolio/professional</loc></url>
+  <url><loc>https://sibinjacob-dev.github.io/my-portfolio/freelance</loc></url>
 </urlset>

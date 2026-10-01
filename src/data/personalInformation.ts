@@ -24,15 +24,10 @@ export const personalInformation = {
     professional: 'Technical skills profile',
     freelance: 'Open to select independent projects',
   },
-  profileImage: '/profile-placeholder.svg',
   professionalStats: [
     { value: '6', label: 'Skill areas', note: 'Reliability, cloud, observability, automation, containers, and web' },
     { value: '3', label: 'Cloud platforms', note: 'AWS, GCP, and IBM Cloud' },
     { value: '30+', label: 'Tools & technologies', note: 'Across infrastructure and engineering' },
     { value: '1', label: 'Core mindset', note: 'Build dependable, clear, repeatable systems' },
-  ],
-  freelanceStats: [
-    { value: '—', label: 'Independent projects', note: 'Add verified count' },
-    { value: '—', label: 'Independent clients', note: 'Add verified count' },
   ],
 }

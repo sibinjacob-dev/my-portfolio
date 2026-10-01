@@ -13,7 +13,6 @@ const professionalNavigation = [
 const freelanceNavigation = [
   { label: 'Overview', id: 'home' },
   { label: 'Services', id: 'services' },
-  { label: 'Work', id: 'portfolio' },
   { label: 'Process', id: 'process' },
   { label: 'Why me', id: 'why-me' },
   { label: 'Contact', id: 'contact' },
